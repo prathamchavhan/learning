@@ -1,0 +1,232 @@
+@@ .. @@
+ body {
+   font-family: 'Poppins', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ .footer-container {
+   background: black;
+   color: white;
+-  padding: 30px;
+-  gap: 100px;
++  padding: clamp(20px, 5vw, 30px);
++  width: 100%;
++  box-sizing: border-box;
+ }
+ 
+ .footer-content {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+-  gap: 210px;
++  gap: clamp(2rem, 15vw, 210px);
++  max-width: 1200px;
++  margin: 0 auto;
++  align-items: flex-start;
+ }
+ 
+ .footer-section {
+   flex: 1;
+-  min-width: 220px;
+-  margin: 10px;
++  min-width: clamp(200px, 30vw, 220px);
++  margin: clamp(5px, 2vw, 10px);
+ }
+ 
+ .footer-logo {
+-  width: 150px;
+-  margin-bottom: 20px;
++  width: clamp(120px, 20vw, 150px);
++  height: auto;
++  margin-bottom: clamp(15px, 3vw, 20px);
+ }
+ 
++.footer-links {
++  list-style: none;
++  padding: 0;
++  margin: 0;
++}
++
+ .footer-links li {
+-  list-style: none;
+-  margin: 8px 0;
++  margin: clamp(6px, 1.5vw, 8px) 0;
+ }
+ 
+ .footer-links a {
+   color: white;
+   text-decoration: underline;
+-  font-size: 14px;
++  font-size: clamp(12px, 2.2vw, 14px);
+   outline: none;
+   border: none;
++  transition: color 0.3s ease;
+ }
+ 
+ .footer-links a:focus,
+ .footer-links a:active {
+   outline: none;
+   border: none;
+   box-shadow: none;
+ }
++
++.footer-links a:hover {
++  color: #00FFFF;
++}
++
+ .contact-section p {
+-  margin: 4px 0; /* Also reduced from 8px */
+-  font-size: 14px;
++  margin: clamp(3px, 1vw, 4px) 0;
++  font-size: clamp(12px, 2.2vw, 14px);
+   display: flex;
+   align-items: center;
+-  gap: 9px;
++  gap: clamp(6px, 1.5vw, 9px);
++  flex-wrap: wrap;
+ }
+ 
+ .contact-item {
+   display: flex;
+   align-items: center;
+-  font-size: 14px;
+-  margin: 6px 0; /* Reduced from 8px */
+-  gap: 1px;
++  font-size: clamp(12px, 2.2vw, 14px);
++  margin: clamp(4px, 1vw, 6px) 0;
++  gap: clamp(4px, 1vw, 8px);
++  flex-wrap: wrap;
+ }
+ 
+-
+ .email-link {
+   color: white;
+   text-decoration: underline;
+-  font-size: 14px;
++  font-size: clamp(12px, 2.2vw, 14px);
+   font-weight: 500;
+   outline: none;
+   border: none;
+   display: inline-flex;
+   align-items: center;
+-  gap: 6px;
++  gap: clamp(4px, 1vw, 6px);
++  transition: color 0.3s ease;
++  word-break: break-all;
+ }
+ 
+ .email-link:hover {
+   color: #00FFFF;
+   text-decoration: none;
+ }
+ 
+ .email-link:focus,
+ .email-link:active {
+   outline: none;
+   border: none;
+   box-shadow: none;
+ }
+ 
++.social-icons {
++  display: flex;
++  gap: clamp(8px, 2vw, 10px);
++  flex-wrap: wrap;
++}
++
+ .social-icons a {
+   color: white;
+-  margin-right: 10px;
+-  font-size: 18px;
++  font-size: clamp(16px, 3vw, 18px);
+   transition: color 0.3s;
+   outline: none;
+   border: none;
++  display: inline-block;
+ }
+ 
+ .social-icons a:hover {
+   color: #00FFFF;
++  transform: scale(1.1);
+ }
+ 
+ .social-icons a:focus,
+ .social-icons a:active {
+   outline: none;
+   border: none;
+   box-shadow: none;
+ }
+ 
+ .footer-bottom {
+   text-align: center;
+-  margin-top: 20px;
++  margin-top: clamp(15px, 3vw, 20px);
++  padding-top: clamp(15px, 3vw, 20px);
++  border-top: 1px solid #333;
+   color: #00FFFF;
+-  font-size: 14px;
++  font-size: clamp(12px, 2.2vw, 14px);
+ }
+ 
++/* Enhanced Mobile Responsive */
+ @media (max-width: 768px) {
+   .footer-content {
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+-    gap: 30px;
++    gap: clamp(20px, 5vw, 30px);
+   }
+ 
++  .footer-section {
++    width: 100%;
++    max-width: 400px;
++  }
++
+   .contact-section {
+     align-items: center;
+     text-align: center;
+   }
+ 
+   .contact-section p {
+     justify-content: center;
+-    gap: 4px; /* space between icon and text */
+-    margin: 4px 0; /* less space between lines */
++    gap: clamp(4px, 1vw, 6px);
++    margin: clamp(3px, 1vw, 4px) 0;
+   }
+ 
+   .email-link {
+-    display: inline-flex;
+-    align-items: center;
+     justify-content: center;
+   }
++
++  .social-icons {
++    justify-content: center;
++  }
++}
++
++@media (max-width: 480px) {
++  .footer-content {
++    gap: clamp(15px, 4vw, 20px);
++  }
++
++  .contact-section p {
++    flex-direction: column;
++    align-items: center;
++    gap: clamp(2px, 0.5vw, 4px);
++  }
++
++  .contact-item {
++    flex-direction: column;
++    text-align: center;
++    gap: clamp(2px, 0.5vw, 4px);
++  }
++
++  .email-link {
++    word-break: break-word;
++    text-align: center;
++  }
+ }

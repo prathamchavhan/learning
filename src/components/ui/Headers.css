@@ -1,0 +1,207 @@
+@@ .. @@
+ /* Header Container Styles */
+ .header-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+-  padding: 14px 24px;
++  padding: 14px clamp(16px, 4vw, 24px);
+   background-color: white;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
++  width: 100%;
++  box-sizing: border-box;
+ }
+ 
+ /* Logo Styles */
+ .logo-section {
+   display: flex;
+   align-items: center;
++  flex-shrink: 0;
+ }
+ 
+ .logo-img {
+-  height: 42px;
++  height: clamp(35px, 6vw, 42px);
+   margin-right: 10px;
+ }
+ 
+ .logo-subtext {
+   color: #000000;
+-  font-size: 15px;
++  font-size: clamp(13px, 2.5vw, 15px);
+ }
+ 
+ /* Navigation Wrapper Styles with Cyan Border */
+ .nav-wrapper {
+   display: flex;
+-  gap: 18px;
+-  padding: 6px 14px;
++  gap: clamp(8px, 2vw, 18px);
++  padding: 6px clamp(8px, 2vw, 14px);
+   border: 2px solid transparent;
+   border-radius: 30px;
++  flex-wrap: wrap;
++  justify-content: center;
+   background: 
+     linear-gradient(white, white) padding-box,
+     linear-gradient(90deg, #29F1E5 0%, #00BCEB 100%) border-box;
+   background-origin: border-box;
+   background-clip: padding-box, border-box;
+ }
+ 
+ /* Navigation Button Styles */
+ .nav-button {
+   color: #000000;
+   text-decoration: none;
+-  padding: 8px 14px;
++  padding: 8px clamp(8px, 2vw, 14px);
+   border-radius: 30px;
+-  font-size: 15px;
++  font-size: clamp(12px, 2.2vw, 15px);
+   transition: background-color 0.2s ease;
+   white-space: nowrap;
++  text-align: center;
+ }
+ 
+ /* Active State Styles */
+ .nav-button.active {
+   background-color: #ed0e0e;
+   color: #000000;
+ }
+ 
+ /* Hover State Styles */
+ .nav-button:hover {
+   background-color: #29f1e4;
+ }
+ 
+ /* Services Dropdown */
+ .services-dropdown {
+   position: relative;
+   cursor: pointer;
+ }
+ 
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background: linear-gradient(to bottom right,#29F1E5 ,#2dd5e8);
+   padding: 10px;
+   border-radius: 20px;
+   top: 100%;
+   left: 0;
+   z-index: 999;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+-  min-width: 250px;
++  min-width: clamp(200px, 40vw, 250px);
++  max-width: 90vw;
+ }
+ 
+ .services-dropdown:hover .dropdown-content {
+   display: block;
+ }
+ 
+ .dropdown-item {
+   padding: 5px 10px;
+   color: #000;
+   font-weight: 510;
+   cursor: pointer;
+   line-height: 1.5;
+-  font-size: 14px;
++  font-size: clamp(12px, 2vw, 14px);
+   font-family: 'Poppins', sans-serif;
+ }
+ 
+ .dropdown-item:hover {
+   background-color: rgba(255, 255, 255, 0.2);
+   border-radius: 8px;
+ }
+ 
+ /* Mobile Menu Toggle - Hidden by default */
+ .mobile-menu-toggle {
+   display: none;
++  background: none;
++  border: none;
++  font-size: 1.5rem;
++  cursor: pointer;
++  color: #000;
+ }
+ 
+-/* Mobile Responsive - Keep same layout but scale appropriately */
++/* Enhanced Mobile Responsive */
+ @media (max-width: 768px) {
+   .header-container {
+-    padding: 10px 16px;
+-    overflow-x: auto;
++    padding: 10px 16px;
++    flex-wrap: wrap;
++    gap: 10px;
+   }
+ 
+-  .logo-img {
+-    height: 35px;
+-    margin-right: 8px;
++  .nav-wrapper {
++    order: 3;
++    width: 100%;
++    justify-content: center;
++    overflow-x: auto;
++    scrollbar-width: none;
++    -ms-overflow-style: none;
+   }
+ 
+-  .logo-subtext {
+-    font-size: 13px;
++  .nav-wrapper::-webkit-scrollbar {
++    display: none;
+   }
+ 
+-  .nav-wrapper {
+-    gap: 12px;
+-    padding: 4px 10px;
+-    flex-shrink: 0;
++  .dropdown-content {
++    left: 50%;
++    transform: translateX(-50%);
+   }
++}
+ 
+-  .nav-button {
+-    padding: 6px 10px;
+-    font-size: 13px;
++@media (max-width: 480px) {
++  .header-container {
++    padding: 8px 12px;
+   }
+ 
+-  .dropdown-content {
+-    min-width: 200px;
++  .nav-wrapper {
++    gap: 6px;
++    padding: 4px 8px;
+   }
+ 
+-  .dropdown-item {
+-    padding: 4px 8px;
+-    font-size: 12px;
++  .nav-button {
++    padding: 6px 8px;
++    min-width: auto;
+   }
+-}
+ 
+-@media (max-width: 480px) {
+-  .header-container {
+-    padding: 8px 12px;
++  .dropdown-content {
++    min-width: 180px;
++    padding: 8px;
+   }
+ 
+-  .logo-img {
+-    height: 30px;
+-    margin-right: 6px;
++  .dropdown-item {
++    padding: 4px 8px;
+   }
++}
